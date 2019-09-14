@@ -22,10 +22,10 @@ title: Michał's coding blog
 email: michkad@gazeta.pl
 description: >- # this means to ignore newlines until "baseurl:"
   This is my personal coding blog where i share my coding thoughts and trips
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://michalkadlubowski.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
-github_username:  michal-kadlubowski
+github_username:  michalkadlubowski
 
 # Build settings
 theme: minima
