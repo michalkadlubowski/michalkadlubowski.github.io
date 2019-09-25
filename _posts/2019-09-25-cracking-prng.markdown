@@ -43,8 +43,12 @@ Let's assume that you invest in one game just enough to see the flop - you now h
 
 If you enumerate all possible seeds of System.Random and shuffle cards using same algorithm as machine uses, then match what you got on machine you'll end up with just a handfull of possible states the deck was when cards were dealt. If you continue to play and wait for another card to apper (turn) you'll know what card will apper on table next (river) and what card computer players have.
 
-How long does it take to check all shuffled decks generated using new System.Random instance on modern computer? About 20 minutes. That's long but it's also easiest possible scenario to scale - you can distribute this job across multiple machines or use scalable serveless solutions offered by cloud and get result in under a minute.
+How long does it take to check all shuffled decks generated using new System.Random instance on modern computer? Under an hour. That's long but it's also easiest possible scenario to scale - you can distribute this job across multiple machines or use scalable serveless solutions offered by one of cloud providers and get result in under a minute.
 
 If waiting or scaling is not for you there is also another possibility:
 
 If the machine uses .NET Framework or .NET Core < 2.2 default Random seed is Environment.TickCount. That means that if you crack the seed once you get the miliseconds the machine is up. Now you can return to the same machine, add the time you were gone (in miliseconds) and try to brute force seeds around that value. If you give yourself 1 hour of margin it should take no more than 2 seconds and you'll probably know all cards after the flop. And that's how you win with poorly designed poker machine.
+
+## How to fix that?
+
+You should not use PRNG with seed that allows attacker to brute force all possibilities or is in any way predictable. In short: for any serious applications you should seed PRNG with at least 128 bits of entropy. 
