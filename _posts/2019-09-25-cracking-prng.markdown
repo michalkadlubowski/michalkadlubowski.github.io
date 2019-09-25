@@ -12,8 +12,7 @@ Let's suppose Bob decides to create a standalone poker machine (Texas Hold'em). 
 ## When problem begins?
 So... Why Bob can get out of business? After all System.Random does a pretty good job generating random numbers. If you generate large amount of random numbers you will end up with pretty uniform distribution.
 
-
-``` C#
+{% highlight c# %}
 static void Main(string[] args)
 {
     var generatedCounts = new int[10];
@@ -25,7 +24,7 @@ static void Main(string[] args)
     }
     Console.WriteLine(string.Join(" ",generatedCounts));
 }
-```
+{% endhighlight %}
 
 
 Example output:
