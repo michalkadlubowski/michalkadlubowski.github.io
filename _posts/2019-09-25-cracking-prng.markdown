@@ -45,7 +45,7 @@ If you enumerate all possible seeds of System.Random and for each seed shuffle c
 
 How long does it take to check all shuffled decks generated using new System.Random instance on modern computer? Under an hour. That's long but it's also one of easiest scenarios to scale - you can distribute this job across multiple machines or use scalable serveless solutions offered by one of cloud providers and get result in under a minute.
 
-Waiting or scaling is no fun for you? There is also another possibility:
+Waiting or scaling is no fun for you? While generating random decks with all possible seeds you can generate small index that will speed up futher searches so that getting all possible scenarios after 5 first cards will only take ~2 seconds (all you need is about 4GB of memory). There is also another possibility:
 
 If the machine uses .NET Framework or .NET Core < 2.2 default Random seed used by new Random() is Environment.TickCount. That means that if you crack the seed once you get the miliseconds the machine is up. Now you can return to the same machine, add the time you were gone (in miliseconds) and try to brute force seeds around that value. If you give yourself 1 hour of margin it should take no more than 2 seconds and you'll probably know all cards after the flop. And that's how you win with poorly designed poker machine.
 
